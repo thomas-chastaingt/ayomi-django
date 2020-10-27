@@ -1,13 +1,14 @@
-{% load bootstrap4 %}
+{% include "main/main.html" %}
 {% load crispy_forms_tags %}
 
-{% block title %}Create an Account{% endblock %}
-
 {% block content %}
-    <form method="POST" class="form-group" action="">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-success">Register</button>
-    </form>
-
+<div class="container">
+    <div class="register_form_area">
+        <form method="POST" class="form-group" action="">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
