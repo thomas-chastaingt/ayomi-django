@@ -1,14 +1,30 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, EditForm
+from django.views import View
+from django.http import HttpResponseRedirect
 
-# Create your views here.
-def register(response):
-    if response.method == 'POST':
-        form = RegisterForm(response.POST)
+
+class RegisterView(View):
+    form = RegisterForm
+    template_name = 'register/register.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form
+        return render(request, self.template_name, {'form': form})
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/login')
-    else:
-        form = RegisterForm()
+            return HttpResponseRedirect('/login')
         
-    return render(response, 'register/register.html', {'form': form})
+        return render(request, self.template_name, {'form': form})
+
+
+class EditUserView(View):
+    form = EditForm
+    template_name = 'edit/edit_user.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form
+        return render(request, self.template_name, {'form': form})

@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'register.apps.RegisterConfig',
-    'home.apps.HomeConfig',
     'main.apps.MainConfig'
 ]
 
@@ -130,5 +129,5 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-LOGIN_REDIRECT_URL = "/home"
+LOGIN_REDIRECT_URL = "/edit_user"
 LOGOUT_REDIRECT_URL = "/"
