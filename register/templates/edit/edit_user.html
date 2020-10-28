@@ -4,13 +4,14 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="container">
-    <div>
-        ...
+    <div class="informations d-flex flex-column align-items-center">
+        <h2>Informations</h2>
+        <p>Username : {{ user.username }}</p>
+        <p> Email : {{ user.email }}</p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Modify my infos
+        </button>
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Modify my infos
-    </button>
-
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
