@@ -8,5 +8,6 @@ To start `web` instances for development:
 $ cd ayomi-django
 $ docker-compose up
 ```
-
-
+Admin log :  
+root  
+test12345
